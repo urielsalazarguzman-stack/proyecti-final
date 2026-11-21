@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPuntos | Cuidemos nuestras calles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="encabezado">
+        <a class="marca" href="#" onclick="mostrarSeccion('inicio'); return false;">
+            <span class="marca-icono">♻</span>
+            <span>Eco<span class="marca-verde">Puntos</span></span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <button id="btnInicio" class="nav-activo" onclick="mostrarSeccion('inicio')">Inicio</button>
+            <button id="btnMapa" onclick="mostrarSeccion('mapa')">Mapa</button>
+            <button id="btnRecompensas" onclick="mostrarSeccion('recompensas')">Recompensas</button>
+            <button id="btnPerfil" onclick="mostrarSeccion('perfil')">Mi perfil</button>
+        </nav>
+
+        <div class="puntos-encabezado">
+            <span>★</span> <span id="puntosEncabezado">0</span> puntos
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <!-- PANTALLA DE INICIO -->
+        <section id="inicio" class="seccion">
+            <div class="bienvenida">
+                <div>
+                    <p class="etiqueta">PEQUEÑAS ACCIONES, GRANDES CAMBIOS</p>
+                    <h1>¡Hagamos una ciudad <span>más limpia!</span></h1>
+                    <p class="texto-bienvenida">Encuentra zonas con basura, participa en su limpieza y gana EcoPuntos que puedes intercambiar por recompensas.</p>
+                    <button class="boton-principal" onclick="mostrarSeccion('mapa')">Explorar el mapa <span>→</span></button>
+                </div>
+                <div class="ilustracion-bienvenida" aria-hidden="true">
+                    <div class="circulo-ilustracion">🌎</div>
+                    <span class="hoja hoja-uno">🌿</span>
+                    <span class="hoja hoja-dos">🍃</span>
+                </div>
+            </div>
+
+            <div class="titulo-seccion">
+                <div>
+                    <p class="etiqueta">TU ACTIVIDAD</p>
+                    <h2>Tu impacto hasta ahora</h2>
+                </div>
+                <span class="texto-secundario">¡Cada acción cuenta!</span>
+            </div>
+
+            <div class="estadisticas">
+                <article class="tarjeta-estadistica">
+                    <div class="icono-estadistica verde">★</div>
+                    <div><p>EcoPuntos</p><strong id="puntosInicio">0</strong></div>
+                </article>
+                <article class="tarjeta-estadistica">
+                    <div class="icono-estadistica azul">✓</div>
+                    <div><p>Zonas limpiadas</p><strong id="limpiezasInicio">0</strong></div>
+                </article>
+                <article class="tarjeta-estadistica">
+                    <div class="icono-estadistica amarillo">🎁</div>
+                    <div><p>Recompensas</p><strong id="recompensasInicio">0</strong></div>
+                </article>
+            </div>
+
+            <div class="tarjeta-aviso">
+                <div class="aviso-icono">💡</div>
+                <div>
+                    <h3>¿Cómo puedes ayudar?</h3>
+                    <p>Visita el mapa, elige una zona disponible y, después de recoger la basura, márcala como limpia para sumar puntos.</p>
+                </div>
+                <button class="boton-secundario" onclick="mostrarSeccion('mapa')">Ver zonas</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA DEL MAPA -->
+        <section id="mapa" class="seccion" style="display: none;">
+            <div class="titulo-seccion titulo-mapa">
+                <div>
+                    <p class="etiqueta">PARTICIPA EN TU COMUNIDAD</p>
+                    <h1>Mapa de limpieza</h1>
+                    <p class="texto-secundario">Selecciona un marcador para consultar una zona.</p>
+                </div>
+                <div class="leyenda"><span class="punto-leyenda rojo"></span> Pendiente <span class="punto-leyenda verde-punto"></span> Limpia</div>
+            </div>
+
+            <div class="mapa-y-detalle">
+                <div class="mapa-falso" aria-label="Mapa ilustrativo de una colonia con tres puntos de recolección">
+                    <div class="parque-mapa"><span>🌳</span><strong>Parque Central</strong></div>
+                    <div class="escuela-mapa"><span>🏫</span><strong>Escuela</strong></div>
+                    <div class="tiendas-mapa"><span>🏪</span><strong>Zona comercial</strong></div>
+                    <div class="calle-texto calle-arriba">AV. PRINCIPAL</div>
+                    <div class="calle-texto calle-lateral">CALLE JUÁREZ</div>
+
+                    <button id="pinParque" class="marcador" style="top: 28%; left: 28%;" onclick="seleccionarPunto('parque')" aria-label="Seleccionar Parque Central">!</button>
+                    <button id="pinEscuela" class="marcador" style="top: 35%; left: 72%;" onclick="seleccionarPunto('escuela')" aria-label="Seleccionar Escuela">!</button>
+                    <button id="pinTiendas" class="marcador" style="top: 76%; left: 54%;" onclick="seleccionarPunto('tiendas')" aria-label="Seleccionar Zona comercial">!</button>
+                    <div class="etiqueta-mapa etiqueta-parque">Parque Central</div>
+                    <div class="etiqueta-mapa etiqueta-escuela">Escuela</div>
+                    <div class="etiqueta-mapa etiqueta-tiendas">Zona comercial</div>
+                    <span class="mapa-nota">Mapa ilustrativo · Ubicaciones ficticias</span>
+                </div>
+
+                <aside class="tarjeta-detalle">
+                    <p class="etiqueta">DETALLES DE LA ZONA</p>
+                    <div class="detalle-icono">📍</div>
+                    <h2 id="detalleNombre">Elige un marcador</h2>
+                    <p id="detalleDescripcion" class="texto-secundario">Selecciona uno de los puntos rojos del mapa para conocer la zona y los EcoPuntos que puedes ganar.</p>
+                    <div class="detalle-puntos"><span>Recompensa</span><strong id="detalleCantidad">-- puntos</strong></div>
+                    <button id="btnRecolectar" class="boton-principal boton-ancho" onclick="recolectarBasura()" disabled>Marcar como limpia</button>
+                    <p id="mensajeMapa" class="mensaje" aria-live="polite">Primero selecciona una zona.</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- PANTALLA DE RECOMPENSAS -->
+        <section id="recompensas" class="seccion" style="display: none;">
+            <div class="titulo-seccion">
+                <div>
+                    <p class="etiqueta">TU ESFUERZO TIENE RECOMPENSA</p>
+                    <h1>Tienda EcoPuntos</h1>
+                    <p class="texto-secundario">Canjea tus puntos por beneficios de ejemplo.</p>
+                </div>
+                <div class="saldo-tienda">★ <span id="puntosTienda">0</span> puntos disponibles</div>
+            </div>
+
+            <div class="tarjetas-recompensas">
+                <article class="tarjeta-recompensa">
+                    <div class="imagen-recompensa fondo-verde">🛍️</div>
+                    <div class="contenido-recompensa">
+                        <span class="categoria">COMERCIOS LOCALES</span>
+                        <h3>10% de descuento</h3>
+                        <p>Descuento de ejemplo en una tienda participante.</p>
+                        <div class="pie-recompensa"><strong>100 ★</strong><button onclick="canjearRecompensa(100, 'Descuento del 10%')">Canjear</button></div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-recompensa">
+                    <div class="imagen-recompensa fondo-azul">🥤</div>
+                    <div class="contenido-recompensa">
+                        <span class="categoria">BEBIDAS</span>
+                        <h3>Bebida gratis</h3>
+                        <p>Una bebida de cortesía en un negocio participante.</p>
+                        <div class="pie-recompensa"><strong>150 ★</strong><button onclick="canjearRecompensa(150, 'Bebida gratis')">Canjear</button></div>
+                    </div>
+                </article>
+
+                <article class="tarjeta-recompensa">
+                    <div class="imagen-recompensa fondo-amarillo">🌱</div>
+                    <div class="contenido-recompensa">
+                        <span class="categoria">ECOLOGÍA</span>
+                        <h3>Kit ecológico</h3>
+                        <p>Un pequeño kit reutilizable de ejemplo.</p>
+                        <div class="pie-recompensa"><strong>200 ★</strong><button onclick="canjearRecompensa(200, 'Kit ecológico')">Canjear</button></div>
+                    </div>
+                </article>
+            </div>
+            <p id="mensajeTienda" class="mensaje mensaje-tienda" aria-live="polite">Los premios son demostrativos y no representan ofertas reales.</p>
+        </section>
+
+        <!-- PANTALLA DEL PERFIL -->
+        <section id="perfil" class="seccion" style="display: none;">
+            <div class="titulo-seccion">
+                <div>
+                    <p class="etiqueta">TU CUENTA</p>
+                    <h1>Mi perfil</h1>
+                    <p class="texto-secundario">Consulta tu progreso como agente de cambio.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta-perfil">
+                <div class="avatar">🌿</div>
+                <div><p class="etiqueta">PARTICIPANTE ECOLÓGICO</p><h2>Usuario EcoPuntos</h2><p class="texto-secundario">¡Gracias por ayudar a mantener limpia tu comunidad!</p></div>
+            </div>
+
+            <div class="estadisticas estadisticas-perfil">
+                <article class="tarjeta-estadistica"><div class="icono-estadistica verde">★</div><div><p>Puntos actuales</p><strong id="puntosPerfil">0</strong></div></article>
+                <article class="tarjeta-estadistica"><div class="icono-estadistica azul">✓</div><div><p>Zonas limpiadas</p><strong id="limpiezasPerfil">0</strong></div></article>
+                <article class="tarjeta-estadistica"><div class="icono-estadistica amarillo">🎁</div><div><p>Premios canjeados</p><strong id="recompensasPerfil">0</strong></div></article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>EcoPuntos</strong> · Cuidar nuestras calles es tarea de todos.</p>
+        <p class="nota-footer">Proyecto escolar · Mapa y recompensas simulados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

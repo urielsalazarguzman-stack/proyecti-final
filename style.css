@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8f6;
+    color: #20312a;
+}
+
+.encabezado {
+    min-height: 76px;
+    padding: 14px 6%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 1px solid #e7eee9;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #20312a;
+    font-size: 23px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.marca-icono {
+    color: #24945d;
+    font-size: 30px;
+}
+
+.marca-verde,
+h1 span {
+    color: #24945d;
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navegacion button {
+    border: none;
+    background: transparent;
+    padding: 11px 14px;
+    color: #65736b;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 9px;
+}
+
+.navegacion button:hover,
+.navegacion .nav-activo {
+    color: #16834e;
+    background: #eaf6ee;
+}
+
+.puntos-encabezado,
+.saldo-tienda {
+    color: #277b4f;
+    background: #edf7ef;
+    padding: 10px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.contenedor {
+    width: 88%;
+    max-width: 1180px;
+    min-height: calc(100vh - 150px);
+    margin: 36px auto 55px;
+}
+
+.seccion {
+    animation: aparecer 0.25s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0.5; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bienvenida {
+    min-height: 280px;
+    padding: 42px 5%;
+    border-radius: 20px;
+    background: linear-gradient(115deg, #e5f5e9, #f2faf3 70%, #e4f3e8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.bienvenida > div:first-child {
+    max-width: 570px;
+}
+
+.etiqueta {
+    color: #258352;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.3px;
+    margin-bottom: 11px;
+}
+
+h1 {
+    color: #203a2c;
+    font-size: clamp(27px, 4vw, 39px);
+    line-height: 1.15;
+    margin-bottom: 14px;
+}
+
+.texto-bienvenida {
+    max-width: 525px;
+    color: #627168;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 23px;
+}
+
+.boton-principal {
+    border: none;
+    background: #218b55;
+    color: #ffffff;
+    border-radius: 9px;
+    padding: 13px 19px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.boton-principal:hover {
+    background: #176f43;
+    transform: translateY(-1px);
+}
+
+.boton-principal span {
+    margin-left: 12px;
+}
+
+.ilustracion-bienvenida {
+    position: relative;
+    width: 230px;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5%;
+}
+
+.circulo-ilustracion {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #c6e8cf;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 76px;
+    box-shadow: 0 12px 30px #5c9c6b25;
+}
+
+.hoja {
+    position: absolute;
+    font-size: 38px;
+}
+
+.hoja-uno { top: 4px; right: 10px; }
+.hoja-dos { bottom: 8px; left: 3px; }
+
+.titulo-seccion {
+    margin: 37px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+}
+
+.titulo-seccion h2 {
+    font-size: 23px;
+    margin-bottom: 0;
+}
+
+.texto-secundario {
+    color: #7a8980;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.tarjeta-estadistica {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #ffffff;
+    border: 1px solid #e9efeb;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 4px 14px #203a2c08;
+}
+
+.icono-estadistica {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.verde { background: #e7f6eb; color: #248b53; }
+.azul { background: #eaf2fa; color: #4f83b5; }
+.amarillo { background: #fff5dd; color: #c18c24; }
+
+.tarjeta-estadistica p {
+    color: #78867e;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.tarjeta-estadistica strong {
+    color: #253a2d;
+    font-size: 25px;
+}
+
+.tarjeta-aviso {
+    margin-top: 22px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e9efeb;
+    border-radius: 14px;
+}
+
+.aviso-icono {
+    font-size: 25px;
+    background: #fff5df;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.tarjeta-aviso div:nth-child(2) { flex: 1; }
+.tarjeta-aviso h3 { font-size: 16px; margin-bottom: 5px; }
+.tarjeta-aviso p { color: #75837a; font-size: 13px; line-height: 1.5; }
+
+.boton-secundario {
+    background: #ffffff;
+    color: #218b55;
+    border: 1px solid #b8ddc5;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-secundario:hover { background: #eff8f1; }
+
+.titulo-mapa { align-items: center; }
+.titulo-mapa h1 { margin-bottom: 7px; }
+.leyenda { display: flex; align-items: center; gap: 7px; color: #6d7b72; font-size: 12px; }
+.punto-leyenda { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-left: 10px; }
+.rojo { background: #e45e55; }
+.verde-punto { background: #29965b; }
+
+.mapa-y-detalle {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.8fr);
+    gap: 20px;
+}
+
+.mapa-falso {
+    position: relative;
+    min-height: 440px;
+    overflow: hidden;
+    border: 7px solid #ffffff;
+    border-radius: 16px;
+    background-color: #e7f0e7;
+    background-image:
+        linear-gradient(90deg, transparent 47%, #ffffff 47%, #ffffff 53%, transparent 53%),
+        linear-gradient(0deg, transparent 46%, #ffffff 46%, #ffffff 54%, transparent 54%);
+    box-shadow: 0 4px 16px #203a2c0a;
+}
+
+.mapa-falso::before,
+.mapa-falso::after {
+    content: "";
+    position: absolute;
+    background: #ffffff;
+    opacity: 0.9;
+}
+
+.mapa-falso::before { width: 13px; height: 120%; top: -10%; left: 18%; transform: rotate(31deg); }
+.mapa-falso::after { width: 120%; height: 12px; top: 75%; left: -10%; transform: rotate(-13deg); }
+
+.parque-mapa,
+.escuela-mapa,
+.tiendas-mapa {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: #5d7463;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.parque-mapa { width: 28%; height: 29%; top: 5%; left: 4%; background: #cde7c8; }
+.escuela-mapa { width: 25%; height: 25%; top: 8%; right: 5%; background: #e8dfc9; }
+.tiendas-mapa { width: 29%; height: 25%; bottom: 5%; right: 9%; background: #e8e4d5; }
+.parque-mapa span, .escuela-mapa span, .tiendas-mapa span { font-size: 28px; }
+
+.calle-texto {
+    position: absolute;
+    z-index: 1;
+    color: #a1afa4;
+    font-size: 9px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.calle-arriba { top: 49%; left: 40%; }
+.calle-lateral { top: 60%; left: 5%; transform: rotate(-90deg); }
+
+.marcador {
+    position: absolute;
+    z-index: 3;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #ffffff;
+    border-radius: 50% 50% 50% 5px;
+    transform: rotate(-45deg);
+    background: #e45e55;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 9px #263b2e35;
+}
+
+.marcador:hover { background: #c94b43; }
+.marcador.limpio { background: #29965b; }
+.marcador::first-letter { transform: rotate(45deg); }
+
+.etiqueta-mapa {
+    position: absolute;
+    z-index: 2;
+    color: #65786a;
+    background: #ffffffd9;
+    border-radius: 5px;
+    padding: 4px 7px;
+    font-size: 10px;
+}
+.etiqueta-parque { top: 33%; left: 13%; }
+.etiqueta-escuela { top: 39%; right: 8%; }
+.etiqueta-tiendas { bottom: 22%; right: 12%; }
+.mapa-nota { position: absolute; z-index: 2; bottom: 8px; left: 12px; color: #829187; font-size: 10px; }
+
+.tarjeta-detalle {
+    background: #ffffff;
+    border: 1px solid #e9efeb;
+    border-radius: 15px;
+    padding: 23px;
+    box-shadow: 0 4px 16px #203a2c08;
+}
+
+.detalle-icono { font-size: 28px; margin: 17px 0 9px; }
+.tarjeta-detalle h2 { font-size: 20px; margin-bottom: 9px; }
+.tarjeta-detalle .texto-secundario { min-height: 70px; font-size: 13px; }
+.detalle-puntos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #edf1ee;
+    border-bottom: 1px solid #edf1ee;
+    padding: 15px 0;
+    margin: 17px 0;
+    color: #748278;
+    font-size: 13px;
+}
+.detalle-puntos strong { color: #248b53; font-size: 16px; }
+.boton-ancho { width: 100%; }
+.boton-principal:disabled { background: #aab8ae; cursor: not-allowed; transform: none; }
+.mensaje { min-height: 35px; margin-top: 12px; color: #6b7d70; font-size: 12px; line-height: 1.5; }
+
+.saldo-tienda { font-size: 13px; }
+.tarjetas-recompensas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.tarjeta-recompensa {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e9efeb;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #203a2c08;
+}
+.imagen-recompensa { height: 145px; display: flex; align-items: center; justify-content: center; font-size: 58px; }
+.fondo-verde { background: #e6f4e8; }
+.fondo-azul { background: #e8f1f8; }
+.fondo-amarillo { background: #fff3d9; }
+.contenido-recompensa { padding: 19px; }
+.categoria { color: #328358; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
+.contenido-recompensa h3 { margin: 8px 0; font-size: 18px; }
+.contenido-recompensa p { min-height: 42px; color: #7a887f; font-size: 13px; line-height: 1.5; }
+.pie-recompensa { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 17px; }
+.pie-recompensa strong { color: #248b53; font-size: 15px; }
+.pie-recompensa button {
+    border: none;
+    border-radius: 7px;
+    background: #218b55;
+    color: #ffffff;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.pie-recompensa button:hover { background: #176f43; }
+.mensaje-tienda { margin-top: 17px; }
+
+.tarjeta-perfil {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #e9efeb;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+.avatar {
+    width: 74px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5f5e9;
+    border-radius: 50%;
+    font-size: 37px;
+}
+.tarjeta-perfil h2 { margin-bottom: 6px; font-size: 21px; }
+.estadisticas-perfil { margin-top: 18px; }
+
+footer {
+    padding: 22px 6%;
+    background: #ffffff;
+    border-top: 1px solid #e7eee9;
+    color: #637268;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.8;
+}
+footer strong { color: #258352; }
+.nota-footer { color: #9aa69e; }
+
+@media (max-width: 850px) {
+    .encabezado { flex-wrap: wrap; justify-content: center; }
+    .marca { margin-right: auto; }
+    .navegacion { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; }
+    .puntos-encabezado { margin-left: auto; }
+    .contenedor { width: 92%; margin-top: 22px; }
+    .mapa-y-detalle { grid-template-columns: 1fr; }
+    .tarjetas-recompensas { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .encabezado { padding: 13px 4%; gap: 12px; }
+    .marca { font-size: 20px; }
+    .navegacion { gap: 2px; }
+    .navegacion button { padding: 9px 10px; font-size: 12px; }
+    .puntos-encabezado { padding: 8px 10px; font-size: 12px; }
+    .bienvenida { padding: 30px 23px; }
+    .ilustracion-bienvenida { display: none; }
+    .estadisticas { grid-template-columns: 1fr; gap: 10px; }
+    .tarjeta-estadistica { padding: 14px; }
+    .tarjeta-aviso { align-items: flex-start; flex-wrap: wrap; }
+    .tarjeta-aviso .boton-secundario { margin-left: 58px; }
+    .titulo-seccion { align-items: flex-start; flex-direction: column; }
+    .leyenda { align-self: flex-start; }
+    .mapa-falso { min-height: 340px; }
+    .tarjetas-recompensas { grid-template-columns: 1fr; }
+    .imagen-recompensa { height: 120px; }
+    .tarjeta-perfil { align-items: flex-start; padding: 18px; }
+    .avatar { width: 57px; height: 57px; font-size: 28px; flex-shrink: 0; }
+}
